@@ -1,0 +1,14 @@
+package com.example.myapplication;
+
+import androidx.room.Dao;
+import androidx.room.Insert;
+import androidx.room.Query;
+
+@Dao
+public interface userinfoDao {
+    @Query("SELECT * FROM users WHERE username = :username AND password = :password")
+    usersinfo getUser(String username, String password);
+
+    @Insert
+    void addUser(usersinfo user);
+}
